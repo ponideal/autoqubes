@@ -12,7 +12,7 @@ BASED_VM="fedora-34"
 
 
 #update dom0
-#sudo qubes-dom0-update --clean -y
+sudo qubes-dom0-update --clean -y
 
 #create controller VM - clone BASEDVM
 qvm-clone "$BASED_VM" "$NAME_BOBMSHELL_CLIENT" -v
