@@ -46,7 +46,8 @@ sudo qvm-shutdown "$NAME_BOBMSHELL_CLIENT" --wait
 
 sudo qvm-start "$NAME_BOBMSHELL_CLIENT"
 
-
+#remove dir
+sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" "sudo rm -rf $WORK_DIR"
 
 #install ansible-qubes GIT
 sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" "git clone https://github.com/ponideal/autoqubes.git"
