@@ -13,10 +13,10 @@ BASED_VM="fedora-34-clone"
 #sudo qubes-dom0-update --clean -y
 
 #create controller VM - clone BASEDVM
-#qvm-clone "$BASED_VM" "$NAME_BOBMSHELL_CLIENT-TEMPLATE" -v
+qvm-clone "$BASED_VM" "$NAME_BOBMSHELL_CLIENT" -v
 
 #qvm create 
-qvm-create --prop template=$BASED_VM --prop name=$NAME_BOBMSHELL_CLIENT --label=red
+#qvm-create --prop template=$BASED_VM --prop name=$NAME_BOBMSHELL_CLIENT --label=red
 #update BOBBSHELL client and BASED VM
 #sudo qubes-dom0-update --action=upgrade "qubes-template-$NAME_BOBMSHELL_CLIENT"
 #sudo qubes-dom0-update --action=upgrade "qubes-template-$BASED_VM"
@@ -38,10 +38,15 @@ sudo echo "$NAME_BOBMSHELL_CLIENT fedrora34-ProxyWork allow" >> "$RPCDIR/policy/
 sudo cat "$RPCDIR/policy/qubes.VMShell"
 
 #install git and ansible in tamplateVM
-sudo qvm-run --pass-io "$BASED_VM" 'sudo dnf install git ansible nano -y'
-sudo qvm-shutdown "$BASED_VM" --wait
-sudo qvm-start "$BASED_VM"
+#sudo qvm-run --pass-io "$BASED_VM" 'sudo dnf install git ansible nano -y'
+#sudo qvm-shutdown "$BASED_VM" --wait
+#sudo qvm-start "$BASED_VM"
 
+
+#install git and ansible in tamplateVM
+sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" 'sudo dnf install git ansible nano -y'
+sudo qvm-shutdown "$NAME_BOBMSHELL_CLIENT" --wait
+sudo qvm-start "$NAME_BOBMSHELL_CLIENT"
 
 
 #set nevm in BOBMSHELL client
@@ -49,12 +54,11 @@ sudo qvm-prefs "$NAME_BOBMSHELL_CLIENT" netvm "$ANSIBLE_NET_VM"
 
 
 #install git and ansible in APPVM
-sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" 'sudo dnf install git ansible nano -y'
+#sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" 'sudo dnf install git ansible nano -y'
 
 
-sudo qvm-shutdown "$BASED_VM" --wait
+#sudo qvm-shutdown "$BASED_VM" --wait
 sudo qvm-shutdown "$NAME_BOBMSHELL_CLIENT" --wait
-
 sudo qvm-start "$NAME_BOBMSHELL_CLIENT"
 
 #install ansible-qubes GIT
