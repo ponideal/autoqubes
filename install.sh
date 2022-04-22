@@ -61,7 +61,7 @@ sudo qvm-start "$NAME_BOBMSHELL_CLIENT"
 sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" "git clone https://github.com/ponideal/autoqubes.git"
 
 sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" "chmod +x $WORK_DIR/controller_install.sh"
-sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" "sudo ./$WORK_DIR/controller_install.sh"
+sudo qvm-run --pass-io "$NAME_BOBMSHELL_CLIENT" "sudo $WORK_DIR/controller_install.sh"
 
 
 #sudo touch /etc/bash.profile
