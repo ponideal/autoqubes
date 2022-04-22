@@ -8,7 +8,7 @@ QRUN_PATH="/home/user/ansible-qubes/bin"
 
 
 #transfer confuguration in controller
-sudo rm -rf $ANSIBLE_ROOT_DIR/
+#sudo rm -rf $ANSIBLE_ROOT_DIR/
 
 #transef ansible cfg 
 sudo cp -rf $WORK_DIR/ansible-qubes/ansible.cfg $ANSIBLE_ROOT_DIR/ansible.cfg
