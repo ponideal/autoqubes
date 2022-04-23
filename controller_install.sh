@@ -20,7 +20,7 @@ sudo cp -rf $WORK_DIR/ansible-qubes/hosts $ANSIBLE_ROOT_DIR/hosts
 if grep -q $QRUN_PATH $BASH_RC_PATH
 	then echo "PATH $QRUN_PATH in $BASH_RC_PATH file is exist!"
 else 
-	sudo echo "export PATH=\$PATH:$QRUN_PATH" >> $BASH_RC_PATH
+	sudo echo "export PATH=\"$QRUN_PATH:\$PATH\"" >> $BASH_RC_PATH
 	echo "PATH $QRUN_PATH in $BASH_RC_PATH DONE!"
 fi
 source $BASH_RC_PATH
