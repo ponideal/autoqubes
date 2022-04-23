@@ -1,25 +1,4 @@
 # Here is where you define your VMs.
-fedora-23    ansible_connection=qubes
-netvm        ansible_connection=qubes
-firewallvm   ansible_connection=qubes
-work         ansible_connection=qubes
-
 dom0         ansible_connection=qubes
-
-pluto        ansible_host=example.com ansible_user=root
-
-[appvms]
-work
-
-[servicevms]
-netvm
-firewallvm
-
-[templatevms]
-fedora-23
-
-[dom0s]
-dom0
-
-[nonqubes]
-pluto
+work         ansible_connection=qubes
+working      ansible_connection=qubes

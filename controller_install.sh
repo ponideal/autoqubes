@@ -27,3 +27,4 @@ source $BASH_RC_PATH
 
 #ping test to dom0
 ansible dom0 -m ping
+ansible work -m ping

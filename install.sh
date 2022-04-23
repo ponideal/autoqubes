@@ -24,7 +24,7 @@ qvm-clone "$BASED_VM" "$NAME_BOBMSHELL_CLIENT" -v
 #active service in dom0
 sudo rm -rf "$RPCDIR/qubes.VMShell"
 sudo touch "$RPCDIR/qubes.VMShell"
-sudo chmod 0644 "$RPCDIR/qubes.VMShell"
+sudo chmod +x "$RPCDIR/qubes.VMShell"
 sudo echo "exec bash" > "$RPCDIR/qubes.VMShell"
 sudo cat "$RPCDIR/qubes.VMShell"
 
